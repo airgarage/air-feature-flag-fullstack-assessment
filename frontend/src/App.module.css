@@ -1,0 +1,48 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 1rem 0.5rem;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .container> :first-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .container> :last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--color-background);
+}
+
+.loading {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}

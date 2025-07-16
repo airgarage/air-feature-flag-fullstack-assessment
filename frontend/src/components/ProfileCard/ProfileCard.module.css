@@ -1,0 +1,93 @@
+.profileCard {
+  margin: 0 auto;
+  width: 100%;
+  background-color: var(--color-card-background);
+  border-radius: 12px;
+  padding: 32px 24px;
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-hover));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(255, 97, 5, 0.2);
+}
+
+.initials {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.name {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-title);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.role {
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.email {
+  font-size: 0.9rem;
+  color: var(--color-subtitle);
+  word-wrap: break-word;
+  margin: 0;
+  opacity: 0.8;
+}
+
+@media (max-width: 340px) {
+  .profileCard {
+    padding: 24px 20px;
+    max-width: unset;
+    margin: 0 16px;
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 16px;
+  }
+
+  .initials {
+    font-size: 1.1rem;
+  }
+
+  .name {
+    font-size: 1.25rem;
+  }
+
+  .role {
+    font-size: 0.8rem;
+  }
+
+  .email {
+    font-size: 0.85rem;
+  }
+}

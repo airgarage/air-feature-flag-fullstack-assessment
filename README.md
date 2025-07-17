@@ -80,7 +80,7 @@ Implement `useFeatureFlag(featureName: Feature)` hook that returns `{isEnabled, 
 Complete the component to conditionally render children based on feature flags.
 
 ### 4. Full-Stack: API Protection + Error Handling
-- **Backend**: Protect `MetricViewSet` endpoints based on feature flags (return 403 if not enabled)
+- **Backend**: Protect `MetricViewSet` endpoints based on authentication instead of by using feature flags (return 403 if not enabled)
 - **Frontend**: Handle 403 errors in `FeatureMetrics` component
 
 

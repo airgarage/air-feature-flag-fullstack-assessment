@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from .utils import get_deterministic_value
 
+
 class UserRole(models.TextChoices):
     ADMIN = "ADMIN", "Admin"
     OWNER = "OWNER", "Owner"
@@ -35,10 +36,10 @@ class FeatureFlag(models.Model):
     def __str__(self):
         return f"{self.name} - {'Enabled' if self.is_enabled else 'Disabled'}"
 
-    def is_enabled_for_user(self, user_id: str | None, user_role: UserRole | None) -> bool:
+    def is_enabled_for_user(
+        self, user_id: str | None, user_role: UserRole | None
+    ) -> bool:
         # TODO: Implement logic to check if feature is enabled based on user_id and user_role
-       
-        print(user_id, user_role)
 
         return False
 
@@ -76,7 +77,7 @@ class Metric(models.Model):
 
 class User(AbstractUser):
     role = models.CharField(choices=UserRole, max_length=20)
-    
+
     @property
     def full_name(self):
         return f"{self.first_name} {self.last_name}"

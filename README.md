@@ -67,7 +67,7 @@ __Note: Avoid localhost so cookies work properly__
 
 Implement `is_enabled_for_user(self, user_id: str | None, user_role: UserRole | None) -> bool` method in the `FeatureFlag` model.
 
-**Utility available**: `get_deterministic_value(key: str, seed: str) -> float`
+**Utility available**: `get_deterministic_value(input: str) -> float`
 
 ### 2. Frontend: Custom Hook
 **File**: `frontend/src/hooks/useFeatureFlag.ts`

@@ -13,20 +13,9 @@ Build a feature flag system that controls feature availability based on:
 - User Roles: Define access levels and permissions based on a user's role.
 - Percentage-Based Rollout: Gradually enable features for a percentage of users within specific roles.
 
-Implementing the feature flag system will cover both the backend (Python/Django) and frontend (TypeScript/React)
+Implementing the feature flag system will cover both the backend (Python/Django) and frontend (TypeScript/React).
 
-Specific tasks you need to complete can be found below under the **Exercises** secion.
-
-
-## **Features Overview**
-| Feature | Access Rules |
-|---------|--------------|
-| Profile | All users |
-| Visitor Dashboard | Admin, Owner, 60% of Employees |
-| Dynamic Price | Admin, 30% of Owners |
-| Revenue Metrics | Admin, Owner |
-| Occupancy Metrics | Admin, 50% of Owners |
-| Enforcement Metrics | Admin, Owner, Employee, Enforcer |
+*Specific tasks you need to complete can be found below under the **Exercises** section.*
 
 ## Setup
 
@@ -67,12 +56,35 @@ __Note: Avoid localhost so cookies work properly__
 
 Implement `is_enabled_for_user(self, user_id: str | None, user_role: UserRole | None) -> bool` method in the `FeatureFlag` model.
 
-**Utility available**: `get_deterministic_value(input: str) -> float`
+**Acceptance Criteria**
+
+Each acceptance criteria shall build off each other.
+
+- Global Toggles: Instantly enable or disable features across the entire system
+    - As a Django Admin, I should have the ability to enable/disable a specific feature flag across the entire system
+- User Roles: Define access levels and permissions based on a user's role
+    - As a user, feature flags should only be enabled if they have been defined for my Feature Flag Role
+- Percentage-Based Rollout: Gradually enable features for a percentage of users within specific roles
+    - As a user, I should only see a feature flag if I fall whithin a percentage that the feature flag is enabled for. Once I've been bucketed, I should always get the same value
+
+> **Utility available**: `get_deterministic_value(input: str) -> float`
+
+**Features Overview**
+| Feature | Access Rules |
+|---------|--------------|
+| Profile | All users |
+| Visitor Dashboard | Admin, Owner, 60% of Employees |
+| Dynamic Price | Admin, 30% of Owners |
+| Revenue Metrics | Admin, Owner |
+| Occupancy Metrics | Admin, 50% of Owners |
+| Enforcement Metrics | Admin, Owner, Employee, Enforcer |
 
 ### 2. Frontend: Custom Hook
 **File**: `frontend/src/hooks/useFeatureFlag.ts`
 
 Implement `useFeatureFlag(featureName: Feature)` hook that returns `{isEnabled, loading, error}`.
+
+> **Utility available**: `useFeatureFlagsContext()`
 
 ### 3. Frontend: Wrapper Component (HOC)
 **File**: `frontend/src/components/FeatureFlagWrapper/FeatureFlagWrapper.tsx`
